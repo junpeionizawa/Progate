@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>English</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <header>
+      <nav class="head_navi clearfix">
+　　　　　<ul class="nav-left">
+          <!-- <li class="nav-list"><%= image_tag "mlb-160706ich01_3.jpg", size: "40x40" %></li> -->
+          <li class="nav-list"><%= link_to 'ホーム',user_path(current_user) %></li>
+          <li class="nav-list"><%= link_to 'クイズを作る',new_section_path %></li>
+          <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
+        </ul>
+        <ul class="nav-right">
+          <li class="nav-list">
+            <%= link_to user_path(current_user) do %>
+              <p><%= "#{current_user.nickname} " %></p>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <% else %>
+    <header>
+      <nav class="head_navi clearfix">
+        <li class="navi-list"><%= link_to 'ログイン', new_user_session_path %></li>
+        <li class="navi-list"><%= link_to '新規登録', new_user_registration_path %></li>
+      </nav>
+    </header>
+    <% end %>
+    <%= yield %>
+    <footer>
+     <div class="container">
+       <div class="row">
+        <div class="col-sm-3">
+          <ul class="footer-infomation">
+            <li class="info-list">アプリ版のダウンロードはこちら</li>
+             <a><%= image_tag "apple.svg", size: "80x60" %></a>
+             <a><%= image_tag "google.svg", size: "80x60" %></a>
+             <p>©︎林檎team</p>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <ul class="footer-infomation">
+            <h4 class="info-list">サービス</h4>
+            <li class="info-list">採用情報</li>
+            <li class="info-list">会社概要</li>
+            <li class="info-list">利用規約</li>
+            <li class="info-list">特定法取引に基づく表示</li>
+            <li class="info-list">運営会社</li>
+            <li class="info-list">法人プラン利用規約</li>
+            <li class="info-list">プライバシーポリシー</li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <ul class="footer-infomation">
+            <h4 class="info-list">サポート</h4>
+            <li class="info-list">クイズ一覧</li>
+            <li class="info-list">有料会員プラン</li>
+            <li class="info-list">サクセスインタビュー</li>
+            <li class="info-list">ブログ</li>
+            <li class="info-list">ヘルプ</li>
+          </ul>
+        </div>
+        <div  class="col-sm-3">
+          <ul class="footer-infomation">
+            <h4 class="info-list">SNS</h4>
+            <li class="info-list">Facebook</li>
+            <li class="info-list">Twitter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+  </body>
+  </html>
+

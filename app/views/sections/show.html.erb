@@ -1,0 +1,17 @@
+<div class="english-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="section-box">
+					<h1>This word </h1>
+					<div class="section-form">
+						<p class="user-word">~<%= @section.question_sentence %>~<br>
+						<p class="word-mean">訳：<%= @section.answer %></p></p>
+						<p class="memo-word"><%= @section.otherwise %></p>
+						<p><%= link_to "back",user_path,class: "btn btn-default" %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

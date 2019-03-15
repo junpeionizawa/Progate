@@ -1,0 +1,22 @@
+<div class="nested-fields well well-compact">
+  <div class="form-group">
+    <%= f.label :設問部分 %>
+    <%= f.text_field :question_sentence %><br>
+  </div>
+  <div class="form_group">
+    <%= f.label :解答部分 %>
+    <%= f.text_field :answer %>
+    <%= link_to_remove_association "問題を削除", f %>
+  </div>
+
+  <div class="sections">
+  	<%= f.fields_for :choices do |choice| %>
+  		<%= render 'choice_fields', f: choice %>
+  	<% end %>
+  	<div class="links">
+      <!-- count:3で選択肢の項目のデフォルトの数を変更している -->
+  		<%= link_to_add_association "選択肢追加", f, :choices,count:3 %><br>
+      <%= f.submit "作成", class: "btn btn-default" %>
+  	</div>
+  </div>
+</div>

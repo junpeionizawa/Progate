@@ -1,0 +1,88 @@
+<div class="user-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<div class="c-card-1">
+					<div class="user_profile">
+					   <div class="profile-name">
+					   	 <p>名前:<%= @user.nickname %></p><br>
+					   	 <p><%= @user.profile %></p>
+					   </div>
+					   <div class="separate"></div>
+					   <div class="user-status">
+					   	<p>経験値:<%= @user.experience %></p>
+					   	<p>Lv:<%= @user.level %></p>
+					   </div>
+					   <div class="separate"></div>
+					   <%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
+					    <div class="separate"></div>
+					   <%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
+					    <div class="separate"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="u">My単語帳</h2>
+				<div class="c-card">
+					<div class="user_profile">
+						<table>
+							<tbody>
+								<% current_user.sections.order(created_at: "desc").each do |section| %>
+								<tr>
+									<div class="col-md-12-sm-5">
+										<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
+										<th><div class="separate"></div></th>
+										<th><%= section.question_sentence %></th><br>
+										<th><div class="separate"></div></th>
+									</div>
+									<div class="col-md-12-sm-5">
+										<th><%= section.answer %></th>
+									</div>
+									<div class="col-md-12-sm-2">
+										<th><div class="separate"></div></th>
+										<th><%= link_to "メモを見る",section_path(section.id),class: "btn btn-default" %></th>
+										<th><%= link_to "削除", section_path(section.id), method: :delete,"data-confirm" => "削除します", class: "btn btn-default" %></th>
+									</div>
+								</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<h2 class="u">チャレンジしよう！</h2>
+				<div class="c-card">
+					<div class="user_profile">
+						<table>
+							<tr>
+								<div class="col-md-12-sm-2">
+									<th></th><br>
+									<th></th>
+									<th></th><br>
+									<th></th>
+								</div>
+								<div class="col-md-12-sm-8">
+									<th></th>
+								</div>
+								<div class="col-md-12-sm-2">
+									<th></th>
+									<th></th>
+								</div>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

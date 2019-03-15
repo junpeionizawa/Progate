@@ -1,0 +1,50 @@
+<div class="section-group">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="section-note">
+				 <h2>attention</h2>
+				  <h4>問題部分</h4>
+				   <p>学んだワードを<br>入力しよう!</p>
+				  <h4>answer</h4>
+				   <p>問題部分のワードの訳を<br>入力しよう!<br>例）apple:りんご</p>
+				  <h4>選択肢①、②</h4>
+				   <p>どちらかにanswerと<br>同じワードを入れてね！<br>例）answerがりんごなら...<br>りんご◯<br>リンゴ×</p>
+				  <h4>メモ欄</h4>
+				   <p>学んだワードを使った<br>例文や熟語などを好きに記録しよう！<br>後から一緒に確認できるよ。</p>
+
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="section-box">
+					<h2>問題作成フォーム</h2>
+					<%= form_with(model: @section) do |f| %>
+	                    <div class="section-form">
+	                      	<%= f.label :問題部分 %>
+	                      	<%= f.text_field :question_sentence %><br>
+	                    </div>
+	                    <div class="section-form">
+	                    	<%= f.label :answer %>
+	                        <%= f.text_field :answer %><br>
+	                    </div>
+	                    <div class="section-form">
+	                    	<%= f.label :選択肢① %>
+	                        <%= f.text_field :select1 %><br>
+	                    </div>
+	                    <div class="section-form">
+	                    	<%= f.label :選択肢② %>
+	                    	<%= f.text_field :select2 %><br>
+	                    </div>
+	                    <div class="section-form">
+	                    	<%= f.label :メモ欄 %>
+	                    	<%= f.text_field :otherwise %><br>
+	                    </div>
+	                     <div class="section-form">
+	                      	<%= f.submit "作成",class: 'btn btn-default'%>
+	                    </div>
+	                <% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

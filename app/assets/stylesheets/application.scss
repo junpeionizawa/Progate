@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /*ブートストラップ 用*/
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .top_page {
+ 	padding-top: 100px;
+ 	height: 600px;
+ }
+ .top_form {
+ 	text-align: center;
+ }
+
+ .new-form {
+ 	padding-bottom: 50px;
+ }
+
+ header {
+ 	width: 100%;
+ 	height: 100%;
+ 	padding: 5px 0;
+ 	background-color: #c6e2ff;
+ 	border-bottom: solid 1px #777;
+ }
+.head-left {
+    list-style: none;
+    float: right;
+   margin: 0 auto;
+}
+
+ .nav-list {
+ 	float: left;
+ 	list-style: none;
+ 	padding: 10px;
+ }
+
+ .nav-right {
+ 	float: right;
+ 	margin-right:30%;
+ }
+
+ footer {
+ 	background-color: #c6e2ff;
+ 	width: 100%;
+ 	height: 100%;
+ }
+
+.footer-infomation {
+	list-style: none;
+	float: left;
+	padding-top:30px;
+}
+
+.info-list {
+	color: #4169e1;
+}
+ .link_form {
+ 	text-decoration: none;
+ }
+
+ .field {
+ 	border-radius: 8px;
+ }
+
+.title_box {
+	background-color:#4169e1;
+	width: 80px;
+	height:40px;
+}
+
+.user_introduce {
+	background-color: snow;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #45ceda;
+    border-color: #f8f8fe;
+}
+
+th {
+	padding-right: 13px;
+	padding-left: 13px;
+}
+
+.form-control {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
