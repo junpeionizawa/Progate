@@ -1,0 +1,35 @@
+<div class="question-group">
+	<div class="container">
+		<div class="row">
+			<div class="question-box">
+　　　　　　　　<!--sectionを引っ張ってくる、@sectionをqsに代入-->
+			  <% @sections.each do |qs| %>
+	　　　　　　　<!-- リンク先、メソッドを指定 -->
+				<%= form_for UserSection.new, url: questions_path, method: :post do |f| %>
+					<h2 class="question-person">
+						<br><%= qs.question_sentence %><br>
+					</h2>
+					<div class="user-shipping-address">
+　　　　　　　　　　　　　　<!--: f.radio_button :記録したいカラム名,送りたいデータ名{初期値を未チェックにする} -->
+                        <!--:useranswerに@sectionのanswerを送る -->
+						<%= f.radio_button :useranswer, qs.answer, {:checked => false} %>
+						<span><%= qs.answer %></span><br>
+						<!--:useranswerに@sectionのmistakeを送る -->
+						<%= f.radio_button :useranswer, qs.mistake, {:checked => false} %>
+						<span><%= qs.mistake %></span>
+					</div>
+					<!-- paramsにsection_idを送る -->
+					<%= hidden_field_tag :section_id, qs.id %>
+					<!-- paramsにquestion_idを送る -->
+					<%= hidden_field_tag :question_id, @question.id %>
+				    <div class="select-btn">
+						<%= f.submit "結果を見る", class: "btn btn-default" %>
+					</div>
+				<% end %>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+

@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :challenger_transactions, class_name: 'Transaction', :foreign_key => 'challenger_id'
   has_many :author_transactions, class_name: 'Transaction', :foreign_key => 'author_id'
-
   has_many :questions
   has_many :sections
   has_many :scores
   has_many :redos
+  has_many :user_sections
+  acts_as_paranoid
    # validates :name,length: {in: 2..20}
    # validates :name, presence: true
    # validates :nickname, presence: true

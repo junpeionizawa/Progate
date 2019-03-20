@@ -32,6 +32,8 @@ class SectionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  
+
   def destroy
    @section = Section.find(params[:id])
    @section.destroy
@@ -40,7 +42,10 @@ class SectionsController < ApplicationController
 
   private
   def section_params
-      params.require(:section).permit(:user_id,:question_sentence,:answer,:select1,:select2,:otherwise)
+      params.require(:section).permit(:user_id,:question_id,:question_sentence,:answer,:mistake,:otherwise)
+  end
+  def choice_params
+      params.require(:choice).permit(:section_id,:select)
   end
 end
 

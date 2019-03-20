@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @sections =Section.where(user_id: @user.id)
+    @sections = Section.all
+    @questions = current_user.questions
   end
-
   def edit
      @user = User.find(params[:id])
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def update
      user = User.find(params[:id])
      user.update(user_params)
-     redirect_to user_path
+     redirect_to user_path(current_user)
   end
 
   def destroy

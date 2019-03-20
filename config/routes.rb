@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'result/top'
   namespace :admin do
    resources :users,only: [:index,:show,:edit,:update,:destroy]
    resources :sections,only: [:index,:show,:destroy,:new,:create]
@@ -9,9 +10,10 @@ Rails.application.routes.draw do
 
    root 'root#top'
    resources :users,only: [:index,:show,:show, :edit, :update, :destroy]
-   resources :questions
+   resources :questions,only: [:new,:show,:create,:index]
    resources :sections, only:  [:show, :edit,:index,:new,:create,:destroy]
    resources :redos, only: [:index, :show, :edit, :destory]
-   resources :scores, only: [:show,:new]
+   resources :scores, only: [:show,:new,:create,:index]
+   resources :choices,only: [:new,:create]
 
 end

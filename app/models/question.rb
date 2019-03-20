@@ -3,5 +3,6 @@ class Question < ApplicationRecord
 	belongs_to :user
 	has_many :scores
 	has_many :redos
-	accepts_nested_attributes_for :sections, reject_if: :all_blank, allow_destroy: true
+	has_many :question_sections
+	# accepts_nested_attributes_for :sections, reject_if: :all_blank, allow_destroy: true
 end

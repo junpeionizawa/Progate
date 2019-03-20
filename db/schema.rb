@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_174120) do
+ActiveRecord::Schema.define(version: 2019_03_20_123955) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "section_id"
     t.string "select"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "question_sections", force: :cascade do |t|
+    t.integer "section_id"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,8 +31,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_174120) do
     t.datetime "created_at", null: false
     t.integer "question_status", default: 0
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_questions_on_deleted_at"
   end
 
   create_table "redos", force: :cascade do |t|
@@ -38,28 +43,31 @@ ActiveRecord::Schema.define(version: 2019_03_14_174120) do
   create_table "scores", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
-    t.integer "point"
+    t.integer "point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "question_id"
     t.string "question_sentence"
     t.string "answer"
+    t.string "mistake"
+    t.string "otherwise"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.string "select1"
-    t.string "select2"
-    t.text "otherwise"
+    t.string "deleted_at"
+    t.index ["deleted_at"], name: "index_sections_on_deleted_at"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "user_sections", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "section_id"
+    t.integer "testscore", default: 0
+    t.string "useranswer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "challenger_id"
-    t.integer "author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,10 +91,11 @@ ActiveRecord::Schema.define(version: 2019_03_14_174120) do
     t.string "location"
     t.string "image"
     t.string "twitter_name"
+    t.datetime "update_at"
     t.integer "admin_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
+    t.string "deleted_at"
     t.integer "level", default: 0
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true

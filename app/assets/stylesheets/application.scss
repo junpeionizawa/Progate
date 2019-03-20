@@ -17,12 +17,17 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .top_page {
- 	padding-top: 100px;
- 	height: 600px;
+ .top-page-1{
+ 	height:100%;
+    width:100%;
+    background: #f0ffff;
  }
  .top_form {
  	text-align: center;
+    padding-top: 100px;
+    height: 600px;
+    width:100%;
+    color : #00608d;
  }
 
  .new-form {
@@ -33,13 +38,13 @@
  	width: 100%;
  	height: 100%;
  	padding: 5px 0;
- 	background-color: #c6e2ff;
- 	border-bottom: solid 1px #777;
+ 	background: #fff;
+ 	/*border-bottom: solid 1px #777;*/
  }
 .head-left {
     list-style: none;
     float: right;
-   margin: 0 auto;
+    margin: 0 auto;
 }
 
  .nav-list {
@@ -53,8 +58,20 @@
  	margin-right:30%;
  }
 
+ .btn-sign-up {
+    background:orange;
+    color: #fff;
+    width: 250px;
+    font-size: 16px;
+ }
+
+ .btn-sign-in{
+    background: #ff577b;;
+    color:#fff;
+ }
+
  footer {
- 	background-color: #c6e2ff;
+ 	background: #fff;
  	width: 100%;
  	height: 100%;
  }
@@ -74,6 +91,8 @@
 
  .field {
  	border-radius: 8px;
+    color : #00608d;
+    font-size:16px;
  }
 
 .title_box {
@@ -96,20 +115,26 @@ th {
 	padding-right: 13px;
 	padding-left: 13px;
 }
+.sign-up-group {
+    width: 100%;
+    height: 750px;
+    background: #f9fbfe;
+    padding: 20px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.15);
+}
 
-.form-control {
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #555555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+.new-form {
+     box-shadow: 0 10px 10px rgba(0,0,0,0.15);
+     background-color: #f0ffff;
+     height: 600px;
+     margin: 4%;
+     padding-top: 15px;
+     text-align: center;
+}
+
+.sign-up-box {
+     height: 600px;
+     margin: 4%;
+     padding-top: 15px;
+     text-align: center;
 }

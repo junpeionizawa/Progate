@@ -31,8 +31,10 @@
     <% else %>
     <header>
       <nav class="head_navi clearfix">
-        <li class="navi-list"><%= link_to 'ログイン', new_user_session_path %></li>
-        <li class="navi-list"><%= link_to '新規登録', new_user_registration_path %></li>
+       <ul class="nav-list">
+        <li class="nav-list"><%= link_to 'ログイン', new_user_session_path %></li>
+        <li class="nav-list"><%= link_to '新規登録', new_user_registration_path %></li>
+       </ul>
       </nav>
     </header>
     <% end %>
