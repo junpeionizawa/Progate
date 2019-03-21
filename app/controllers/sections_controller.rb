@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_action :authenticate_login_user
   def index
     @section = Section.all
   end

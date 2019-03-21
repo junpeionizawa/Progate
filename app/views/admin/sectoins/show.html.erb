@@ -1,2 +1,18 @@
-<h1>Admin::Sectoins#show</h1>
-<p>Find me in app/views/admin/sectoins/show.html.erb</p>
+<div class="english-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="section-box">
+					<h1>This word is..</h1>
+					<div class="section-form">
+						<p class="user-word">~<%= @section.question_sentence %>~<br>
+						<p class="word-mean">訳:<%= @section.answer %></p></p>
+						<p class="memo-word">選択肢:<%= @section.mistake %></p>
+						<p class="memo-word"><%= @section.otherwise %></p>
+						<p><%= link_to "back",admin_users_path,class: "btn btn-default" %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

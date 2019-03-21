@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
+  before_action :authenticate_login_user
   PER = 4
   def index
     @user = current_user
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @sections = Section.all
     # page(params[:page]).per(4)
-    @questions = @user.questions
+    @questions = current_user.questions
   end
   def edit
      @user = User.find(params[:id])

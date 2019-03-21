@@ -4,17 +4,17 @@
 			<div class="col-md-10">
 				<div class="c-card-1">
 					<div class="user_profile">
-	<!-- 				   	 <img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %></img> -->
-					   <div class="separate"></div>
-					     <p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><%= @user.profile %></p>
-					   <div class="separate"></div>
-					    <div class="user-status">
-					   	  <p>経験値:<%= @user.experience %>/50</p>
-					   </div>
-					    <div class="separate"></div>
-					      <%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
-					    <div class="separate"></div>
-					      <%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
+						<img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %>
+						<div class="separate"></div>
+						<p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><%= @user.profile %></p>
+						<div class="separate"></div>
+						<div class="user-status">
+							<p>経験値:<%= @user.experience %>/50</p>
+						</div>
+						<div class="separate"></div>
+						<%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
+						<div class="separate"></div>
+						<%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
 					</div>
 				</div>
 			</div>
@@ -62,67 +62,67 @@
 						<table>
 							<tbody>
 								<% @user.questions.each do |question| %>
-									<% question.question_sections.each do |question_section| %>
-										<tr>
-											<div class="col-md-12-sm-5">
-												<th></th>
-												<td><%= question.id %></td><br>
-												<td><div class="separate"></div></td>
-											</div>
-											<div class="col-md-12-sm-5">
-												<th>解答：</th>
-												<td><%= question_section.section.user_section.useranswer %></td><br>
-												<td><div class="separate"></div></td>
-											</div>
-											<div class="col-md-12-sm-5">
-												<th>こたえ：</th>
-												<td><%= question_section.section.answer %></td>
-												<td><div class="separate"></div></th>
-											</div>
-											<div class="col-md-12-sm-2">
-												<th>得点：</th>
-												<td><%= question_section.section.user_section.testscore %>点</td>
-											</div>
-										</tr>
-									<% end %>
-								<% end %>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10">
-				<h2 class="u">チャレンジしよう！</h2>
-				<div class="c-card">
-					<div class="user_profile">
-						<table>
-						  <tbody>
-						   <% @sections.order(created_at: "desc").each do |section|%>
+								<% question.question_sections.each do |question_section| %>
 								<tr>
 									<div class="col-md-12-sm-5">
-										<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
-										<th><div class="separate"></div></th>
-										<th><%= section.answer %></th><br>
-										<th><div class="separate"></th>
-									</div>
-									<div class="col-md-12-sm-8">
-										<th><%= link_to "チャレンジしよう！",new_question_path,class: "btn btn-default" %></th>
-									</div>
-									<div class="col-md-12-sm-2">
 										<th></th>
-										<th></th>
+										<td><%= question.id %></td><br>
+										<td><div class="separate"></div></td>
 									</div>
-								</tr>
-							<% end %>
-                          </tbody>
-						</table>
+									<div class="col-md-12-sm-5">
+										<th>解答：</th>
+										<td><%= question_section.section.user_section.useranswer %></td><br>
+										<td><div class="separate"></div></td>
+									</div>
+									<div class="col-md-12-sm-5">
+										<th>こたえ：</th>
+										<td><%= question_section.section.answer %></td>
+										<td><div class="separate"></div></th>
+										</div>
+										<div class="col-md-12-sm-2">
+											<th>得点：</th>
+											<td><%= question_section.section.user_section.testscore %>点</td>
+										</div>
+									</tr>
+									<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<h2 class="u">チャレンジしよう！</h2>
+					<div class="c-card">
+						<div class="user_profile">
+							<table>
+								<tbody>
+									<% @sections.order(created_at: "desc").each do |section|%>
+									<tr>
+										<div class="col-md-12-sm-5">
+											<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
+											<th><div class="separate"></div></th>
+											<th><%= section.answer %></th><br>
+											<th><div class="separate"></th>
+											</div>
+											<div class="col-md-12-sm-8">
+												<th><%= link_to "チャレンジしよう！",new_question_path,class: "btn btn-default" %></th>
+											</div>
+											<div class="col-md-12-sm-2">
+												<th></th>
+												<th></th>
+											</div>
+										</tr>
+										<% end %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

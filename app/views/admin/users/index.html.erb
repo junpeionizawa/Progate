@@ -1,25 +1,52 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
-
-
-<div class="container">
+<div class="admin-user-page">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-6">
 				<div class="c-card-1">
 					<div class="user_profile">
-					   	 <!-- <img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %></img> -->
-					   <div class="separate"></div>
-					     <p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><%= @user.profile %></p>
-					   <div class="separate"></div>
-					    <div class="user-status">
-					   	  <p>経験値:<%= @user.experience %>/50</p>
-					   </div>
-					    <div class="separate"></div>
-					      <%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
-					    <div class="separate"></div>
-					      <%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
+						<img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %></img>
+						<div class="separate"></div>
+						<p class="user-profile-box"><%= @user.email %><!-- (Lv.<%= @user.level %>)<br><%= @user.profile %> --></p>
+						<div class="separate"></div>
+						<div class="user-status">
+						<p>管理人</p>
+						<!-- 	<p>経験値:<%= @user.experience %>/50</p> -->
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="u">登録された単語一覧</h2>
+				<div class="c-card">
+					<div class="user_profile">
+						<table>
+							<tbody>
+								<% @sections.order(created_at: "desc").each do |section| %>
+								<tr>
+									<div class="col-md-12-sm-5">
+										<th><%= link_to "削除",admin_section_path(section.id), method: :delete,"data-confirm" => "削除します", class: "btn btn-default" %></th>
+										<th><div class="separate"></div></th>
+										<th><%= section.question_sentence %></th><br>
+										<th><div class="separate"></div></th>
+									</div>
+									<div class="col-md-12-sm-5">
+										<th><%= section.answer %></th>
+									</div>
+									<div class="col-md-12-sm-2">
+										<th><div class="separate"></div></th>
+										<th><%= section.otherwise %></th><br>
+									</div>
+								</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -10,7 +10,14 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.id == 1 %>
+        <!-- 管理者がログインしている時 -->
+          <ul class="head_navi clearfix">
+            <li class="nav-list"><%= link_to 'クイズを作る',new_section_path %></li>
+            <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
+            <li class="nav-list">管理者画面</li>
+          </ul>
+    <% elsif user_signed_in? %>
     <header>
       <nav class="head_navi clearfix">
 　　　　　<ul class="nav-left">
