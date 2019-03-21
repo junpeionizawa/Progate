@@ -24,7 +24,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
+      @user = current_user
       @question = Question.find(params[:question_id])
+      # user_sectionテーブルの作成
       @user_section =UserSection.new(user_section_params)
       @user_section.user_id = current_user.id
       @user_section.section_id = params[:section_id]
@@ -36,6 +38,12 @@ class QuestionsController < ApplicationController
         if @user_section.useranswer == @section.answer
            @user_section.testscore += 20
            @user_section.save
+           @user.experience += 20
+            if @user.experience >= 50
+               @user.level += 1
+               @user.experience -= 50
+            end
+           @user.save
            redirect_to question_path(@question.id)
         else
           redirect_to question_path(@question.id)

@@ -4,20 +4,17 @@
 			<div class="col-md-10">
 				<div class="c-card-1">
 					<div class="user_profile">
-					   <div class="profile-name">
-					   	 <p>名前:<%= @user.nickname %></p><br>
-					   	 <p><%= @user.profile %></p>
-					   </div>
+	<!-- 				   	 <img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %></img> -->
 					   <div class="separate"></div>
-					   <div class="user-status">
-					   	<p>経験値:<%= @user.experience %></p>
-					   	<p>Lv:<%= @user.level %></p>
-					   </div>
+					     <p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><%= @user.profile %></p>
 					   <div class="separate"></div>
-					   <%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
+					    <div class="user-status">
+					   	  <p>経験値:<%= @user.experience %>/50</p>
+					   </div>
 					    <div class="separate"></div>
-					   <%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
+					      <%= link_to "編集",edit_user_path, class: "btn btn-default center-block" %><br>
 					    <div class="separate"></div>
+					      <%= link_to 'クイズを作る',new_section_path,class: "btn btn-default" %>
 					</div>
 				</div>
 			</div>
@@ -105,21 +102,21 @@
 						<table>
 						  <tbody>
 						   <% @sections.order(created_at: "desc").each do |section|%>
-							<tr>
-								<div class="col-md-12-sm-5">
-									<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
-									<th><div class="separate"></div></th>
-									<th><%= section.answer %></th><br>
-									<th><div class="separate"></th>
-								</div>
-								<div class="col-md-12-sm-8">
-									<th><%= link_to "チャレンジしよう！",new_question_path,class: "btn btn-default" %></th>
-								</div>
-								<div class="col-md-12-sm-2">
-									<th></th>
-									<th></th>
-								</div>
-							</tr>
+								<tr>
+									<div class="col-md-12-sm-5">
+										<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
+										<th><div class="separate"></div></th>
+										<th><%= section.answer %></th><br>
+										<th><div class="separate"></th>
+									</div>
+									<div class="col-md-12-sm-8">
+										<th><%= link_to "チャレンジしよう！",new_question_path,class: "btn btn-default" %></th>
+									</div>
+									<div class="col-md-12-sm-2">
+										<th></th>
+										<th></th>
+									</div>
+								</tr>
 							<% end %>
                           </tbody>
 						</table>

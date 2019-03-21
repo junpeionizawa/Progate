@@ -1,5 +1,22 @@
-<% @question.question_sections.each do |question_section| %>
-    <%= question_section.section.user_section.useranswer %>
-    <%= question_section.section.answer %>
-    <%= question_section.section.user_section.testscore %>
-<% end %>
+<div class="question-test-group">
+	<div class="container">
+	  <div class="row">
+	  	<div class="col-12">
+	  		<table>
+	  			<% @question.question_sections.each do |question_section| %>
+	  		  <tr>
+	  		  	<th><p>あなたの答え:<%= question_section.section.user_section.useranswer %></p></th>
+	  		  </tr>
+	  		  <tr>
+	  		  	<th><p>解答:<%= question_section.section.answer %></p><th>
+	  		  </tr>
+	  		  <tr>
+	  		  	<th><p>得点:<%= question_section.section.user_section.testscore %></p></th>
+	  		  </tr>
+	  		    <% end %>
+	  		</table>
+	  		 <%= link_to "home",user_path(current_user),class: "btn btn-default" %>
+	  	</div>
+	  </div>
+	</div>
+</div>

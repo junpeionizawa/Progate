@@ -4,15 +4,19 @@
       <div class="col-md-12">
         <h2>登録情報編集</h2><br>
     <%= form_for(@user) do |f| %>
-      <%= f.label :ニックネーム %><br>
+          <%= f.label :ニックネーム %><br>
         <div class="m">
           <%= f.text_field :nickname %><br>
         </div>
-        <%= f.label :プロフィール　%><br>
+          <%= f.label :プロフィール　%><br>
         <div class="m">
           <%= f.text_field :profile %><br>
         </div>
-        <%= f.label :パスワード %><br>
+          <%= f.label :プロフィール画像 %><br>
+          <%= f.file_field :profile_image %>
+        <div class="m">
+        </div>
+          <%= f.label :パスワード %><br>
         <div class="m">
           <%= f.text_field :password,placeholder:"パスワード" %><br>
         </div>

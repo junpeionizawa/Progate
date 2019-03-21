@@ -1,20 +1,23 @@
 class UsersController < ApplicationController
+  PER = 4
   def index
+    @user = current_user
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @sections = Section.all
-    @questions = current_user.questions
+    # page(params[:page]).per(4)
+    @questions = @user.questions
   end
   def edit
      @user = User.find(params[:id])
   end
 
   def update
-     user = User.find(params[:id])
-     user.update(user_params)
-     redirect_to user_path(current_user)
+     @user = User.find(params[:id])
+     @user.update(user_params)
+     redirect_to user_path(@user.id)
   end
 
   def destroy

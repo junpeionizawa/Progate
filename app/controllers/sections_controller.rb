@@ -4,7 +4,8 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:id])
+    # @section = Section.find(params[:id])
+    @section = Section.with_deleted.find(params[:id])
     @user = current_user
   end
 
@@ -32,8 +33,6 @@ class SectionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  
-
   def destroy
    @section = Section.find(params[:id])
    @section.destroy
@@ -43,9 +42,6 @@ class SectionsController < ApplicationController
   private
   def section_params
       params.require(:section).permit(:user_id,:question_id,:question_sentence,:answer,:mistake,:otherwise)
-  end
-  def choice_params
-      params.require(:choice).permit(:section_id,:select)
   end
 end
 

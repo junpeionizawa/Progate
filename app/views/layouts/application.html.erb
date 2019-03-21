@@ -21,9 +21,11 @@
         </ul>
         <ul class="nav-right">
           <li class="nav-list">
-            <%= link_to user_path(current_user) do %>
-              <p><%= "#{current_user.nickname} " %></p>
-            <% end %>
+            <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '60x60') %></li>
+              <%= link_to user_path(current_user) do %>
+                <%= "#{@user.email} " %>
+                (Lv.<%= "#{@user.level} " %>)
+              <% end %>
           </li>
         </ul>
       </nav>

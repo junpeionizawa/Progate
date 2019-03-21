@@ -73,7 +73,8 @@ gem "refile-mini_magick"
 
 gem "cocoon"
 
-gem 'kaminari'
+gem 'kaminari','~> 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'ransack'
 
@@ -84,8 +85,6 @@ gem 'paranoia'
 
 gem 'pry-rails'
 
-gem 'better_errors'
-
-
 gem 'gon'
+
 

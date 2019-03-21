@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'result/top'
   namespace :admin do
    resources :users,only: [:index,:show,:edit,:update,:destroy]
    resources :sections,only: [:index,:show,:destroy,:new,:create]
