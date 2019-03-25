@@ -1,38 +1,32 @@
 <div class="user-info">
   <div class="container">
     <div class="row">
+     <div class="user-info-box">
       <div class="col-md-12">
-        <h2>登録情報編集</h2><br>
-    <%= form_for(@user) do |f| %>
-          <%= f.label :ニックネーム %><br>
-        <div class="m">
-          <%= f.text_field :nickname %><br>
-        </div>
+        <h1>登録情報編集</h1><br>
+        <%= form_for(@user) do |f| %>
+        <div class="s">
           <%= f.label :プロフィール　%><br>
-        <div class="m">
+        </div>
+        <div class="s">
           <%= f.text_field :profile %><br>
         </div>
+        <div class="s">
           <%= f.label :プロフィール画像 %><br>
-          <%= f.file_field :profile_image %>
-        <div class="m">
         </div>
-          <%= f.label :パスワード %><br>
-        <div class="m">
-          <%= f.text_field :password,placeholder:"パスワード" %><br>
-        </div>
-        <div class="m">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email%>
+        <div class="ss">
+           <%= f.file_field :profile_image %>
         </div>
 
-        <div class="m">
+        <div class="s">
           <div class="user-update-btn">
-             <%= f.submit "編集" %>
+             <%= f.submit "編集する" %>
           </div>
         </div>
         <% end %>
         <%= link_to "退会はこちらから",user_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
       </div>
+     </div>
     </div>
   </div>
 </div>

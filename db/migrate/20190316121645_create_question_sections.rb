@@ -4,7 +4,8 @@ class CreateQuestionSections < ActiveRecord::Migration[5.2]
 
        t.integer :section_id
        t.integer :question_id
-       t.integer :record,default: 0
+       t.string  :sectionanswer
+       t.integer :sectionscore,default: 0
       t.timestamps
     end
   end

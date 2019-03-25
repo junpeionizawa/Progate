@@ -9,12 +9,13 @@ class User < ApplicationRecord
   has_many :sections
   has_many :scores
   has_many :redos
+  has_many :sections,through: :user_sections
   has_many :user_sections
   acts_as_paranoid
-   # validates :name,length: {in: 2..20}
-   # validates :name, presence: true
-   # validates :nickname, presence: true
-   # validates :password, presence: true
+   #  validates :name,length: {in: 2..20}
+   #  validates :name, presence: true
+   # # validates :nickname, presence: true
+   #  validates :password, presence: true
    # validates :nickname,length: {maximum:20}
    # validates :password,length: {maximum:20}
    # validates :profile, length: {maximum:50}

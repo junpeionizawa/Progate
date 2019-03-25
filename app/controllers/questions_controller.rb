@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_login_user
+   before_action :authenticate_user!
   def index
     @questions = current_user.questions
 
@@ -13,42 +13,45 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    # ログインuserのidを持ったquestionテーブルを作る
-   @question = Question.new(user_id: current_user.id)
-   @question.save
-   # sectionをランダムに持ってくる
-   @sections = Section.offset(rand(Section.count)).first(1)
-      @sections.each do |section|
-        @question_section = QuestionSection.new(section_id: section.id,question_id: @question.id)
-        @question_section.save
-      end
+   @user = current_user
+   @sections = Section.order("RANDOM()").limit(2)
   end
 
   def create
-      @user = current_user
-      @question = Question.find(params[:question_id])
-      # user_sectionテーブルの作成
-      @user_section =UserSection.new(user_section_params)
-      @user_section.user_id = current_user.id
-      @user_section.section_id = params[:section_id]
-      @user_section.save
-      # # @user_section = UserSection.find_by(section_id: params[:section_id],user_id:current_user.id)
-      # # Section.where(user_id: current_user.id)
-      # # # @section = Section.where(user_id: current_user.id)
-      @section = Section.find(params[:section_id])
-        if @user_section.useranswer == @section.answer
-           @user_section.testscore += 20
-           @user_section.save
-           @user.experience += 20
-            if @user.experience >= 50
-               @user.level += 1
-               @user.experience -= 50
-            end
-           @user.save
-           redirect_to question_path(@question.id)
-        else
-          redirect_to question_path(@question.id)
-        end
+       @user = current_user
+       @sections = Section.find(params[:section_id])
+       @user_section = UserSection.new(user_id: @user.id,section_id: params[:section_id])
+       @user_section.useranswer = params[:user_section][:useranswer]
+       @user_section.save
+       @question = Question.new(user_id:@user.id)
+       @question.save
+
+       if  @user_section.useranswer == @user_section.section.answer
+         @user_section.testscore += 20
+         @user_section.save
+         @user.experience += 20
+
+         if @user.experience >= 150
+           @user.level += 1
+           @user.experience -= 150
+         end
+         @user.save
+         @user_sections = UserSection.where(user_id:@user.id,section_id:params[:section_id])
+         @user_sections.each do |user_section|
+           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore)
+           @score.save
+           user_section.destroy
+         end
+         redirect_to question_path(@question.id)
+       else
+        @user_sections = UserSection.where(user_id:@user.id,section_id:params[:section_id])
+         @user_sections.each do |user_section|
+           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore)
+           @score.save
+           user_section.destroy
+         end
+        redirect_to question_path(@question.id)
+      end
   end
 
   def destroy

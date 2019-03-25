@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   # before_action :only_admin_user
   def index
-    @user = current_user
+    @users = User.all
     @sections = Section.all
   end
 

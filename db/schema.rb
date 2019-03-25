@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_123955) do
+ActiveRecord::Schema.define(version: 2019_03_25_080933) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "section_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_20_123955) do
   create_table "question_sections", force: :cascade do |t|
     t.integer "section_id"
     t.integer "question_id"
+    t.string "sectionanswer"
+    t.integer "sectionscore", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,11 +43,12 @@ ActiveRecord::Schema.define(version: 2019_03_20_123955) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "question_id"
     t.integer "point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "testanswer"
+    t.integer "section_id"
   end
 
   create_table "sections", force: :cascade do |t|

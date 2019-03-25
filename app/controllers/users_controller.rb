@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_login_user
+  before_action :authenticate_user!
   PER = 4
   def index
     @user = current_user
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @sections = Section.all
+    @sections = Section.page(params[:page]).per(4)
     # page(params[:page]).per(4)
     @questions = current_user.questions
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-     @user = User.find(params[:id])
+     @user = current_user
      @user.update(user_params)
      redirect_to user_path(@user.id)
   end

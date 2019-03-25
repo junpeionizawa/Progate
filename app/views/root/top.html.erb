@@ -1,11 +1,13 @@
+<!DOCTYPE html>
+<html>
 <div class="top-page-1">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="top_form">
-					<h1>ようこそ！！ <strong></strong> </h1>
+					<h1 class="top-h1">ようこそ！！ <strong></strong> </h1>
 
-					<p> このサイトは全ての人の英語力の向上をサポートします。<br><br><br>
+					<p class="site-info"> このサイトは全ての人の英語力の向上をサポートします。<br><br><br>
 						毎日の問題投稿を通じて多くの英語ワードに触れよう。<br><br>
 					</p>
 					<%= link_to "ログイン",user_session_path,class:"sign_in btn btn-sign-up" %><br><br>
@@ -15,3 +17,12 @@
 		</div>
 	</div>
 </div>
+<div class="cp_cssslider">
+	<div class="cp_slidewrapper">
+		<div class="cp_slide_item"><%= image_tag "ajisai.jpg", size: "380x250" %></div>
+		<div class="cp_slide_item"><%= image_tag "momiji.jpg",  size: "380x250" %></div>
+		<div class="cp_slide_item"><%= image_tag"八坂庚申堂.jpg",  size: "380x250" %></div>
+		<div class="cp_slide_item"><%= image_tag"hakone.jpg",  size: "380x250" %></div>
+	</div>
+</div>
+</html>

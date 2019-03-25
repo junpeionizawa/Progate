@@ -1,7 +1,8 @@
 class SectionsController < ApplicationController
-  before_action :authenticate_login_user
+  PER = 5
+  before_action :authenticate_user!
   def index
-    @section = Section.all
+    @sections = current_user.sections.page(params[:page]).per(PER)
   end
 
   def show
@@ -24,11 +25,11 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     @section.user_id = current_user.id
     @section.save
-    @user = User.find(current_user.id)
+    @user = current_user
     @user.experience += 10
-    if @user.experience >= 50
+    if @user.experience >= 150
        @user.level += 1
-       @user.experience -= 50
+       @user.experience -= 150
     end
     @user.save
     redirect_to user_path(current_user)

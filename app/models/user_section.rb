@@ -1,4 +1,6 @@
 class UserSection < ApplicationRecord
 	belongs_to :user
-	has_one :section
+	belongs_to :section
+	# validates :useranswer, presence: true
+	# useranswer
 end

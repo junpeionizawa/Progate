@@ -30,8 +30,8 @@
           <li class="nav-list">
             <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '60x60') %></li>
               <%= link_to user_path(current_user) do %>
-                <%= "#{@user.email} " %>
-                (Lv.<%= "#{@user.level} " %>)
+                <%= "#{current_user.email} " %>
+                (Lv.<%= "#{current_user.level} " %>)
               <% end %>
           </li>
         </ul>

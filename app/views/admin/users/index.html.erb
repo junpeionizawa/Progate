@@ -1,16 +1,16 @@
 <div class="admin-user-page">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="c-card-1">
+			<div class="col-md-7">
+				<div class="c-card-11">
 					<div class="user_profile">
 						<img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %></img>
 						<div class="separate"></div>
-						<p class="user-profile-box"><%= @user.email %><!-- (Lv.<%= @user.level %>)<br><%= @user.profile %> --></p>
+						<p class="user-profile-box"><%= current_user.email %><!-- (Lv.<%= current_user.level %>)<br><%= current_user.profile %> --></p>
 						<div class="separate"></div>
 						<div class="user-status">
 						<p>管理人</p>
-						<!-- 	<p>経験値:<%= @user.experience %>/50</p> -->
+						<!-- 	<p>経験値:<%= current_user.experience %>/50</p> -->
 						</div>
 					</div>
 				</div>
@@ -21,24 +21,81 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="u">登録された単語一覧</h2>
-				<div class="c-card">
+				<div class="c-card-admin">
 					<div class="user_profile">
 						<table>
 							<tbody>
 								<% @sections.order(created_at: "desc").each do |section| %>
 								<tr>
-									<div class="col-md-12-sm-5">
 										<th><%= link_to "削除",admin_section_path(section.id), method: :delete,"data-confirm" => "削除します", class: "btn btn-default" %></th>
 										<th><div class="separate"></div></th>
 										<th><%= section.question_sentence %></th><br>
 										<th><div class="separate"></div></th>
+										<th><%= section.answer %></th>
+										<th><div class="separate"></div></th>
+										<th><%= section.otherwise %></th><br>
+										<th><div class="separate"></div></th>
+										<th><%= section.otherwise %></th><br>
+								</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="u">登録されたuser一覧</h2>
+				<div class="c-card-admin-1">
+					<div class="user_profile">
+						<table>
+							<tbody>
+								<tr>
+								　<th></th>
+								  <th></th>
+								  <th><div class="separate"></div></th>
+								  <th>user名</th>
+								  <th><div class="separate"></div></th>
+								  <th>メールアドレス</th>
+								  <th><div class="separate"></div></th>
+								  <th>経験値(Pt.)</th>
+								  <th><div class="separate"></div></th>
+								  <th>Lv(Lv.)</th>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="u"></h2>
+				<div class="c-card-admin-2">
+					<div class="user_profile">
+						<table>
+							<tbody>
+								<% @users.order(created_at: "desc").each do |user| %>
+								<tr>
+									<div class="col-md-12-sm-5">
+										<th><%= link_to "削除",admin_user_path(user.id), method: :delete,"data-confirm" => "削除します", class: "btn btn-default" %></th>
+										<th><div class="separate"></div></th>
+										<th><%= user.name %></th><br>
+										<th><div class="separate"></div></th>
 									</div>
 									<div class="col-md-12-sm-5">
-										<th><%= section.answer %></th>
+										<th><%= user.email %></th>
 									</div>
 									<div class="col-md-12-sm-2">
 										<th><div class="separate"></div></th>
-										<th><%= section.otherwise %></th><br>
+										<th><%= user.experience %></th><br>
+										<th><div class="separate"></div></th>
+										<th><%= user.level%></th><br>
 									</div>
 								</tr>
 								<% end %>
