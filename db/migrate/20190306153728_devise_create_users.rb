@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :nickname
       t.text   :profile
-      t.string :profile_image
+      t.string :profile_image_id
       # t.string :password
       t.integer :experience,default: 0
       t.string :uid

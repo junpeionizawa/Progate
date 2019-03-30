@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_080933) do
+ActiveRecord::Schema.define(version: 2019_03_30_052759) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "section_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_080933) do
     t.datetime "created_at", null: false
     t.integer "question_status", default: 0
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_questions_on_deleted_at"
   end
 
   create_table "redos", force: :cascade do |t|
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_080933) do
     t.datetime "updated_at", null: false
     t.string "testanswer"
     t.integer "section_id"
+    t.string "user_select_answer"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -87,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_080933) do
     t.string "name"
     t.string "nickname"
     t.text "profile"
-    t.string "profile_image"
+    t.string "profile_image_id"
     t.integer "experience", default: 0
     t.string "uid"
     t.string "provider"

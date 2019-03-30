@@ -31,14 +31,14 @@ class QuestionsController < ApplicationController
          @user_section.save
          @user.experience += 20
 
-         if @user.experience >= 150
+         if @user.experience >= 200
            @user.level += 1
-           @user.experience -= 150
+           @user.experience -= 200
          end
          @user.save
          @user_sections = UserSection.where(user_id:@user.id,section_id:params[:section_id])
          @user_sections.each do |user_section|
-           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore)
+           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore,user_select_answer:@user_section.section.answer)
            @score.save
            user_section.destroy
          end
@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
        else
         @user_sections = UserSection.where(user_id:@user.id,section_id:params[:section_id])
          @user_sections.each do |user_section|
-           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore)
+           @score = Score.new(question_id:@question.id,section_id:@user_section.section_id,testanswer:@user_section.useranswer,point:@user_section.testscore,user_select_answer:@user_section.section.answer)
            @score.save
            user_section.destroy
          end

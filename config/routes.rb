@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/events.json',to:'users#history'
   get 'ajax/data'
   get 'ajax/index'
   get 'infomation/top'

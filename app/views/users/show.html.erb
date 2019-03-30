@@ -4,9 +4,9 @@
 			<div class="col-md-12">
 				<div class="c-card-1">
 					<div class="user_profile">
-						<img><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '75x75') %>
+						<img><%= attachment_image_tag(@user, :profile_image, fallback: "/images/no_image.png",size: '85x85') %></img>
 						<div class="separate"></div>
-						<p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><br>経験値:<%= @user.experience %>/50<br><br>
+						<p class="user-profile-box"><%= @user.email %>(Lv.<%= @user.level %>)<br><br>経験値:<%= @user.experience %>/200<br><br>
 							<%= @user.profile %></p>
 						<div class="separate"></div>
 						<%= link_to 'My単語帳',sections_path,class: "btn btn-default" %>
@@ -19,27 +19,43 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+		<div class="container">
+		  <div class="row">
+		  	<div class="<col-md-3>">
+		  		<div id="calendar">
+　　　　　　　　　　　<div class="calender-color">
+			  	    <div class="color-box-1"></div>
+			  		<div class="color-box-2"></div>
+			  		<div class="color-box-3"></div>
+			  		<div class="color-box-4"></div>
+			  		<div class="color-box-5"></div>
+			  		<div class="color-box-6"></div>(少ない〜多い)
+			  	  </div>
+		  		</div>
+		  	</div>
+		  </div>
+		</div>
+   	　<div class="container">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-11">
 				<h2 class="u">テスト結果</h2>
 				<div class="c-card">
 					<div class="user_profile">
 						<table>
 							<tbody>
-								<% @questions.each do |question| %>
-								<% question.question_sections.each do |question_section| %>
+								<% @questions.order(created_at: "desc").each do |question| %>
+								<% question.scores.each do |score| %>
 								<tr>
 									<th></th>
 									<td><%= question.id %></td><br>
 									<td><div class="separate"></div></td>
-									<th>解答：<%= question_section.sectionanswer %></th>
+									<th>解答：<%= score.testanswer %></th>
 									<!--  -->
 									<td><div class="separate"></div></td>
 									<th>こたえ：</th>
-									<td><%= question_section.section.answer %></td>
+									<td><%= score.user_select_answer %></td>
 									<td><div class="separate"></div></th>
-										<th>得点：<%= question_section.sectionscore %></th>
+										<th>獲得経験値：<%= score.point %></th>
 										<!--  -->
 									</tr>
 									<% end %>
@@ -52,30 +68,25 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-md-6">
 					<h2 class="u">チャレンジしよう！</h2>
-					<div class="c-card">
+					<div class="c-card-sections">
 						<div class="user_profile">
 							<table>
 								<tbody>
-									<% @sections.order(created_at: "desc").each do |section|%>
 									<tr>
-										<th><%= section.created_at.strftime("%Y-%m-%d %H:%M:%S") %></th><br>
-										<th><div class="separate"></div></th>
-										<th><%= section.answer %></th><br>
+										<th><%= @section.answer %></th><br>
 										<th><div class="separate"></th>
 											<th><%= link_to "チャレンジしよう！",infomation_top_path,class: "btn btn-default" %></th>
 											<th></th>
 											<th></th>
 										</tr>
-										<% end %>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
-				<%= paginate @sections%>
 			</div>
 		</div>
 </div>

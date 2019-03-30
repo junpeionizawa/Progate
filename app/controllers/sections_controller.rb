@@ -27,9 +27,9 @@ class SectionsController < ApplicationController
     @section.save
     @user = current_user
     @user.experience += 10
-    if @user.experience >= 150
+    if @user.experience >= 200
        @user.level += 1
-       @user.experience -= 150
+       @user.experience -= 200
     end
     @user.save
     redirect_to user_path(current_user)

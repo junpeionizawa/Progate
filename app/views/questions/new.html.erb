@@ -13,7 +13,7 @@
                         <% a.each do |b| %>
                              <!--: f.radio_button :記録したいカラム名,送りたいデータ名{初期値を未チェックにする} -->
                              <!--:useranswerに@sectionのanswerを送る -->
-                        	<%= f.radio_button :useranswer, b, {:checked => true} %>
+                        	<%= f.radio_button :useranswer, b, {:checked => false} %>
 							<span><%= b %></span><br>
                         <% end %>
 					</div>

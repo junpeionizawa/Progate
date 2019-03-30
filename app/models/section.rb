@@ -3,7 +3,6 @@ class Section < ApplicationRecord
 	belongs_to :user
 	has_many :choices, inverse_of: :section
 	has_many :scores
-	has_many :users,through: :user_sections
 	has_many :user_sections
 	has_many :question_sections
 	has_many :questions,through: :question_sections

@@ -1,22 +1,45 @@
 <div class="question-test-group">
 	<div class="container">
-	  <div class="row">
-	  	<div class="col-12">
-	  		<table>
-	  			<% @question.scores.each do |score| %>
-	  		  <tr>
-	  		  	<th><p>あなたの答え:<%= score.testanswer %></p></th>
-	  		  </tr>
-	  		  <tr>
-	  		  	<th><p>解答:<%= score.section.answer %></p><th>
-	  		  </tr>
-	  		  <tr>
-	  		  	<th><p>得点:<%= score.point %></p></th>
-	  		  </tr>
-	  		    <% end %>
-	  		</table>
-	  		 <%= link_to "home",user_path(current_user),class: "btn btn-default" %>
-	  	</div>
-	  </div>
+		<div class="row">
+			<div class="col-12">
+				<div class="c-card-question-result">
+					<h2 class="qr">Your Answer Is...</h2>
+					<div class="user_profile">
+						<table>
+							<% @question.scores.each do |score| %>
+							<% if score.testanswer == score.section.answer %>
+							 <tr>
+							  <th class="qs-message">Congratulations!!</th><br>
+							  <a><%= image_tag "/images/正解.jpeg", size: "200x200" %></a>
+							 <tr>
+							<% else%>
+							  <tr>
+							  <th class="qs-message">That's too bad...</th><br>
+							  <a><%= image_tag "/images/不正解.jpeg", size: "210x210" %></a>
+							  </tr>
+                            <% end %>
+							<tr>
+								<th class="qs">あなたの解答:<%= score.testanswer %></th>
+							</tr>
+							<tr>
+								<th class="qs">答え:<%= score.user_select_answer %><th>
+							</tr>
+							<tr>
+								<th class="qs">あなたの経験値:<%= current_user.experience %>/200(Pt.)</th>
+							</tr>
+							<tr>
+								<th class="qs">
+									<%= link_to "Back To Home？",user_path(current_user),class: "btn btn-default" %><strong>or</strong>
+									<%= link_to "One More Challenge？", new_question_path,class: "btn btn-default" %>
+								</th>
+							</tr>
+								<% end %>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+

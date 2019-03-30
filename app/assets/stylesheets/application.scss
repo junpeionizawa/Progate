@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -153,71 +154,4 @@ th {
      text-align: center;
 }
 
-
-.cp_cssslider {
-    width: 100%;
-    height: 800px;
-    overflow: hidden;
-    margin: 2em auto;
-    border: 10px solid #ffffff;
-    box-shadow:0px 0px 5px 0px rgba(0,0,0,0.5);
-}
-.cp_slide_item {
-    width: 300px;
-    height: 200px;
-    float: left;
-    position: relative;
-}
-.cp_slidewrapper {
-    width: 400%;/* slideの枚数×100% */
-    position: relative;
-    left: 0;
-    animation: slider 20s infinite ease;/* スピード */
-}
-@-webkit-keyframes slider {
-    /* 100%を枚数で割った%に割り振る */
-    0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-    25% {
-    -webkit-transform: translateX(-300px);
-    transform: translateX(-300px);
-    }
-    50% {
-    -webkit-transform: translateX(-600px);
-    transform: translateX(-600px);
-    }
-    75% {
-    -webkit-transform: translateX(-900px);
-    transform: translateX(-900px);
-    }
-    100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-}
-@keyframes slider {
-    /* 100%を枚数で割った%に割り振る */
-    0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-    25% {
-    -webkit-transform: translateX(-300px);
-    transform: translateX(-300px);
-    }
-    50% {
-    -webkit-transform: translateX(-600px);
-    transform: translateX(-600px);
-    }
-    75% {
-    -webkit-transform: translateX(-900px);
-    transform: translateX(-900px);
-    }
-    100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-}
 

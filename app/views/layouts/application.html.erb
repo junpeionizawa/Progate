@@ -13,22 +13,23 @@
     <% if user_signed_in? && current_user.id == 1 %>
         <!-- 管理者がログインしている時 -->
           <ul class="head_navi clearfix">
-            <li class="nav-list"><%= link_to 'クイズを作る',new_section_path %></li>
             <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
+            <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "/images/no_image.png",size: '60x60') %></li>
             <li class="nav-list">管理者画面</li>
           </ul>
     <% elsif user_signed_in? %>
     <header>
       <nav class="head_navi clearfix">
 　　　　　<ul class="nav-left">
-          <!-- <li class="nav-list"><%= image_tag "mlb-160706ich01_3.jpg", size: "40x40" %></li> -->
+          <%= link_to user_path(current_user) do %>
+           <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "/images/no_image.png",size: '70x70') %></li>
+          <% end %>
           <li class="nav-list"><%= link_to 'ホーム',user_path(current_user) %></li>
           <li class="nav-list"><%= link_to 'クイズを作る',new_section_path %></li>
           <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
         </ul>
         <ul class="nav-right">
           <li class="nav-list">
-            <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "no_image.png",size: '60x60') %></li>
               <%= link_to user_path(current_user) do %>
                 <%= "#{current_user.email} " %>
                 (Lv.<%= "#{current_user.level} " %>)

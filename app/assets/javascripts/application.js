@@ -14,18 +14,27 @@
   //= require turbolinks
   //= require jquery
   //= require bootstrap-sprockets
+  //= require Chart.bundle
+  //= require chartkick
+  //= require moment
+  //= require fullcalendar
   //= require_tree .
   //= require cocoon
 
+  $(document).ready(function(){
+  $('#calendar').fullCalendar({
+  	events: '/events.json',
+  eventRender: function(event, element){
+    console.log('eventRenderだよ');
+    console.log(event.count);
+    console.log(element);
+    element.append(event.count);
+  },
+     aspectRatio: 0.4,
+     height: 500
+  });
+});
 
-// $(function(){
-//   var imgs = $("#slideshow > li");
-//   var imgLen = imgs.length;
-//   var count = 0;
-//   function changeImg(){
-//     //スライド切替のポイント（配列を順番に処理し終わったら配列の先頭に戻る計算式）
-//     count = (count + 1) % imgLen; 
-//     imgs.removeClass("showSlide").eq(count).addClass("showSlide");
-//   }
-//   setInterval(changeImg, 5000); //切替の間隔（ミリ秒）
-// })
+
+
+

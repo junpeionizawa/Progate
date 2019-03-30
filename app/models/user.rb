@@ -9,9 +9,9 @@ class User < ApplicationRecord
   has_many :sections
   has_many :scores
   has_many :redos
-  has_many :sections,through: :user_sections
   has_many :user_sections
   acts_as_paranoid
+  attachment :profile_image
    #  validates :name,length: {in: 2..20}
    #  validates :name, presence: true
    # # validates :nickname, presence: true

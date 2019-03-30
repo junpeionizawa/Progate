@@ -23,6 +23,9 @@
 						</table>
 					</div>
 					<%= paginate @sections %>
+					<% if @sections.empty? %>
+					<p style="text-align:center; color:red;"><%= link_to 'クイズを作ろう!!',new_section_path,class: "btn btn-default" %></p>
+					<% end %>
 				</div>
 			</div>
 		</div>

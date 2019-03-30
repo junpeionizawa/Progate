@@ -85,6 +85,9 @@ gem 'paranoia'
 
 gem 'pry-rails'
 
-gem 'gon'
+gem "chartkick"
+gem 'chartable'
+gem 'groupdate'
 
-
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
