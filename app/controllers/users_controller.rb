@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
   def history
-    @scores = Score.group("DATE(created_at)").count
+    @questions = Question.group("DATE(created_at)").count
      history_list = []
-      for date, count in @scores do
+      for date, count in @questions do
          # history = []
          if count > 20
          color = "mediumblue"

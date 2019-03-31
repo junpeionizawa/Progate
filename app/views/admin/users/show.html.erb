@@ -1,2 +1,32 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="admin-show-group">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11">
+				<h2 class="us">登録user一覧</h2>
+				<div class="c-card-admin-show">
+					<div class="user_profile">
+						<table>
+							<tbody>
+								<tr>
+									<div class="col-md-10-sm-5">
+										<th><%= link_to "削除",admin_user_path(@user.id), method: :delete,"data-confirm" => "削除します", class: "btn btn-default" %></th>
+										<th><div class="separate"></div></th>
+										<th><%= @user.name %></th><br>
+										<th><div class="separate"></div></th>
+									</div>
+									<div class="col-md-12-sm-5">
+										<th><%= @user.email %><br><br><%= @user.level%>(Lv.)</th>
+									</div>
+									<th><div class="separate"></div></th>
+									<div class="col-md-12-sm-2">
+										<th><img><%= attachment_image_tag(@user, :profile_image, fallback: "no_image.png",size: '85x85') %></img></th>
+									</div>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

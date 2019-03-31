@@ -7,14 +7,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
   end
 
   def destroy
-    @section = Section.find(params[:id])
-    @section.destroy
+    @user = User.with_deleted.find(params[:id])
+    @user.destroy
     redirect_to admin_users_path
   end
 
