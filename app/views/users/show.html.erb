@@ -1,7 +1,7 @@
 <div class="user-page">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-10">
 				<div class="c-card-1">
 					<div class="user_profile">
 						<img><%= attachment_image_tag(@user, :profile_image, fallback: "no_image.png",size: '85x85') %></img>
@@ -11,8 +11,6 @@
 						<div class="separate"></div>
 						<%= link_to 'My単語帳',sections_path,class: "btn btn-default" %>
 						<div class="separate"></div>
-						<%= link_to 'クイズを作ろう!!',new_section_path,class: "btn btn-default" %>
-						<div class="separate"></div>
 						<%= link_to "プロフィール編集",edit_user_path, class: "btn btn-default center-block" %><br>
 					</div>
 				</div>
@@ -21,6 +19,15 @@
 	</div>
 		<div class="container">
 		  <div class="row">
+		  	<div class="col-md-4">
+		  		<div id="question-start">
+		  			<h2>学習カレンダー</h2>
+		  			<p class="calendar-info">沢山クイズにチャレンジして、<br>経験値をGetしよう!</p>
+		  			<p class="calendar-info">一問正解で20Ptをゲット、<br>200Ptで1Lv.アップ！</p>
+		  			<p class="calendar-info">Yes you can,just do it !!</p>
+			  		<p class="calendar-info"><%= link_to "チャレンジしよう！！",infomation_top_path,class: "btn btn-default" %></p>
+		  		</div>
+		  	</div>
 		  	<div class="col-md-8">
 		  		<div id="calendar">
 　　　　　　　　　　　<div class="calender-color">
@@ -30,7 +37,6 @@
 			  		<div class="color-box-4"></div>
 			  		<div class="color-box-5"></div>
 			  		<div class="color-box-6"></div>(少ない〜多い)
-			  		<%= link_to "たくさん問題を解こう！",infomation_top_path,class: "btn btn-default" %>
 			  	  </div>
 		  		</div>
 		  	</div>

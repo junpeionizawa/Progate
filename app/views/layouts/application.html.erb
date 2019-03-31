@@ -25,7 +25,7 @@
            <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "/images/no_image.png",size: '70x70') %></li>
           <% end %>
           <li class="nav-list"><%= link_to 'ホーム',user_path(current_user) %></li>
-          <li class="nav-list"><%= link_to 'クイズを作る',new_section_path %></li>
+          <li class="nav-list"><%= link_to 'クイズを作ろう！',new_section_path %></li>
           <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
         </ul>
         <ul class="nav-right">
@@ -57,7 +57,7 @@
             <li class="info-list">アプリ版のダウンロードはこちら</li>
              <a><%= image_tag "apple.svg", size: "80x60" %></a>
              <a><%= image_tag "google.svg", size: "80x60" %></a>
-             <p>©︎ English Shower</p>
+            <li class="info-list">©︎ 2019.English Shower,lnc</li>
           </ul>
         </div>
         <div class="col-sm-3">
