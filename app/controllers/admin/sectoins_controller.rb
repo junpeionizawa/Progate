@@ -5,7 +5,7 @@ class Admin::SectoinsController < ApplicationController
   end
 
   def show
-    @section = Section.with_deleted.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def edit
@@ -24,5 +24,9 @@ class Admin::SectoinsController < ApplicationController
   end
 
   def new
+  end
+  private
+  def section_params
+      params.require(:section).permit(:user_id,:question_id,:question_sentence,:answer,:mistake,:otherwise)
   end
 end

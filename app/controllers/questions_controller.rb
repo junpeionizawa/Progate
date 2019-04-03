@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
 
   def new
    @user = current_user
-   @sections = Section.order("RANDOM()").limit(1)
+   @sections = Section.order("RAND()").limit(1)
   end
 
   def create
