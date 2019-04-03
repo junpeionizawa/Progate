@@ -31,30 +31,30 @@ class UsersController < ApplicationController
      history_list = []
       for date, count in @questions do
          # history = []
-         if count > 30
+         if count > 13
          color = "mediumblue"
          history_list.push({'count':count,'start':date,'rendering':'background','color':'mediumblue'})
          history_list.flatten!
-         elsif count > 23
+         elsif count > 10
           color = "blue"
           # history_list = {'start':date,'rendering':'background','color':'red'}
           history_list.push({'count':count,'start':date,'rendering':'background','color':'blue'})
           history_list.flatten!
-         elsif count > 15
+         elsif count > 8
           color = "dodgerblue"
           # history_list = {'start':date,'rendering':'background','color':'orangered'}
           history_list.push({'count':count,'start':date,'rendering':'background','color':'dodgerblue'})
           history_list.flatten!
-        elsif count > 10
+        elsif count > 6
           color = "deepskyblue"
           # history_list = {'start':date,'rendering':'background','color':'orange'}
            history_list.push({'count':count,'start':date,'rendering':'background','color':'deepskyblue'})
            history_list.flatten!
-        elsif count > 5
+        elsif count > 3
           color = "lightskyblue"
           history_list.push({'count':count,'start':date,'rendering':'background','color':'lightskyblue'})
           history_list.flatten!
-        elsif count > 2
+        elsif count > 1
           color = "lightcyan"
           history_list.push({'count':count,'start':date,'rendering':'background','color':'lightcyan'})
           history_list.flatten!
