@@ -1,0 +1,15 @@
+current directory: /Users/onizawajunpei/Desktop/wordshowers/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.2/ext/bootsnap
+/Users/onizawajunpei/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190725-23301-1r0zxh3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/onizawajunpei/Desktop/wordshowers/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/onizawajunpei/Desktop/wordshowers/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/onizawajunpei/Desktop/wordshowers/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20190725-23301-tonjif/bootsnap
