@@ -24,7 +24,6 @@
           <%= link_to user_path(current_user) do %>
            <li class="nav-list"><%= attachment_image_tag(current_user, :profile_image, fallback: "/images/no_image.png",size: '70x70') %></li>
           <% end %>
-          <li class="nav-list"><%= link_to 'ホーム',user_path(current_user) %></li>
           <li class="nav-list"><%= link_to 'クイズを作ろう！',new_section_path %></li>
           <li class="nav-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
         </ul>
