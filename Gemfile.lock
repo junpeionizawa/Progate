@@ -115,7 +115,7 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (4.1.1)
       activesupport (>= 4.2)
-    hashie (3.6.0)
+    hashie (5.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -175,8 +175,8 @@ GEM
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
-    omniauth (1.9.0)
-      hashie (>= 3.4.6, < 3.7.0)
+    omniauth (1.9.2)
+      hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
     omniauth-oauth (1.1.0)
       oauth
@@ -194,7 +194,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.1)
-    rack (2.0.6)
+    rack (2.2.4)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
